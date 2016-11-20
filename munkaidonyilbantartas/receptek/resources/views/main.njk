@@ -1,0 +1,27 @@
+{% extends "layout" %}
+
+{% block content %}
+
+<h1>{{ name }}</h1>
+
+<div class="row">
+
+  {% for category in categories %}
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">{{ category.name }}</div>
+      <ul class="list-group">
+        {% for recipe in category.topRecipes %}
+        <li class="list-group-item">
+          <a href="/recipes/{{ recipe.id }}">
+            {{ recipe.name }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock %}
